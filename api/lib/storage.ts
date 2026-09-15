@@ -131,23 +131,42 @@ function writeLocalJourneys(journeys: StoredJourney[]): void {
  * Server-side timestamp generator
  * NodeMCU ESP8266 only provides destination - server creates date, time, and timestamp
  */
-export function generateServerTimestamp(): { date: string; time: string; timestamp: number } {
+export function generateServerTimestamp(): {
+  date: string;
+  time: string;
+  timestamp: number;
+} {
   const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day = String(now.getDate()).padStart(2, '0');
-  const dateStr = `${year}-${month}-${day}`;
 
-  let hours = now.getHours();
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-  const timeStr = `${String(hours).padStart(2, '0')}:${minutes} ${ampm}`;
+  const dateParts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(now);
 
-  return { date: dateStr, time: timeStr, timestamp: now.getTime() };
+  const timeParts = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  }).formatToParts(now);
+
+  const getPart = (parts: Intl.DateTimeFormatPart[], type: string) =>
+    parts.find(p => p.type === type)?.value || '';
+
+  const dateStr =
+    `${getPart(dateParts, 'year')}-${getPart(dateParts, 'month')}-${getPart(dateParts, 'day')}`;
+
+  const timeStr =
+    `${getPart(timeParts, 'hour')}:${getPart(timeParts, 'minute')} ${getPart(timeParts, 'dayPeriod').toUpperCase()}`;
+
+  return {
+    date: dateStr,
+    time: timeStr,
+    timestamp: now.getTime(),
+  };
 }
-
 /**
  * Validates destination: ONLY 'College', 'Gym', 'Trip'
  */
