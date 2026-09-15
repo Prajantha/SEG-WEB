@@ -1,0 +1,72 @@
+[
+  {
+    "id": "seg-mu31vxvg-l3w2",
+    "date": "2026-09-15",
+    "time": "07:14 PM",
+    "destination": "College",
+    "timestamp": 1789499648572
+  },
+  {
+    "id": "seg-mu31q29e-3f0e",
+    "date": "2026-09-15",
+    "time": "07:09 PM",
+    "destination": "Gym",
+    "timestamp": 1789499374322
+  },
+  {
+    "id": "seg-001",
+    "date": "2026-09-16",
+    "time": "08:15 AM",
+    "destination": "College",
+    "timestamp": 1789546500000
+  },
+  {
+    "id": "seg-002",
+    "date": "2026-09-15",
+    "time": "05:40 PM",
+    "destination": "Gym",
+    "timestamp": 1789494000000
+  },
+  {
+    "id": "seg-003",
+    "date": "2026-09-14",
+    "time": "07:20 AM",
+    "destination": "Trip",
+    "timestamp": 1789370400000
+  },
+  {
+    "id": "seg-004",
+    "date": "2026-09-13",
+    "time": "08:30 AM",
+    "destination": "College",
+    "timestamp": 1789288200000
+  },
+  {
+    "id": "seg-005",
+    "date": "2026-09-12",
+    "time": "06:10 PM",
+    "destination": "Gym",
+    "timestamp": 1789236600000
+  },
+  {
+    "id": "seg-006",
+    "date": "2026-09-11",
+    "time": "08:10 AM",
+    "destination": "College",
+    "timestamp": 1789114200000
+  },
+  {
+    "id": "seg-007",
+    "date": "2026-09-10",
+    "time": "08:25 AM",
+    "destination": "College",
+    "timestamp": 1789028700000
+  },
+  {
+    "id": "seg-008",
+    "date": "2026-09-09",
+    "time": "08:15 AM",
+    "destination": "College",
+    "timestamp": 1788941700000
+  }
+]
